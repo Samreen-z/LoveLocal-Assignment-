@@ -82,14 +82,14 @@ public class Main{
         return result;
     }
 }
-//LOGIC
+//LOGIC & ALGORITHM
 // The logic is based on the Boyer-Moore Majority Vote algorithm.
 // The algorithm efficiently identifies potential majority elements using voting.
 // The program takes user input, extracts array elements, and finds elements that appear more than ⌊ n/3 ⌋ times in the array.
 // The result is printed to the console.
 // The overall logic involves string parsing, array manipulation, and the implementation of the Boyer-Moore Majority Vote algorithm for finding majority elements in an array.
 
-//ALGORITHM
+
 // 1.Initialization:
 // Two candidates (candidate1 and candidate2) and their respective 
 // counters (count1 and count2) are initialized.
