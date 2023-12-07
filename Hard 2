@@ -1,0 +1,72 @@
+import java.util.Scanner;
+
+public class Main {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt user for input
+        System.out.print("Enter a string: ");
+        String s = scanner.nextLine();
+
+        // Find and print the shortest palindrome
+        String result = shortestPalindrome(s);
+        System.out.println("Shortest palindrome: " + result);
+
+        // Close the scanner
+        scanner.close();
+    }
+
+    public static String shortestPalindrome(String s) {
+        int n = s.length();
+        if (n <= 1) {
+            return s;
+        }
+
+        int i = 0;
+        for (int j = n - 1; j >= 0; j--) {
+            if (s.charAt(i) == s.charAt(j)) {
+                i++;
+            }
+        }
+
+        if (i == n) {
+            // The string is already a palindrome
+            return s;
+        }
+
+        String suffix = s.substring(i);
+        String prefix = new StringBuilder(suffix).reverse().toString();
+
+        // Construct the shortest palindrome by adding the reversed suffix to the original string
+        return prefix + s;
+    }
+}
+
+// Main Method:
+// 1.User Input:
+// The program prompts the user to enter a string.
+// 2.Find Shortest Palindrome:
+// The shortestPalindrome method is called with the entered string as an 
+// argument to find the shortest palindrome.
+// 3.Print Result:
+// The resulting shortest palindrome is printed to the console.
+
+
+// shortestPalindrome Method:
+// 1.Length Check:
+// Check if the length of the input string s is less than or equal to 1. 
+// If true, the string itself is a palindrome, so return the original string.
+
+// 2.Palindrome Check:
+// Initialize two pointers, i and j, at the beginning and end of the string, respectively.
+// Iterate through the string from the start and end, and while characters at i and j match, 
+// increment i and decrement j.
+// If i becomes equal to the length of the string, the entire string is a palindrome.
+
+// 3.Construct Shortest Palindrome:
+// If the string is not a palindrome, extract the suffix of the string starting from index i to the end.
+// Reverse the suffix to obtain a prefix.
+// Construct the shortest palindrome by concatenating the reversed suffix with the original string.
+
+// 4.Return Result:
+// Return the constructed shortest palindrome.
