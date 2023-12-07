@@ -1,0 +1,45 @@
+import java.util.Scanner;
+
+public class Main{
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+
+        // Prompt user for input
+        System.out.print("Input: n = ");
+        int n = scanner.nextInt();
+
+        // Count the total number of digit 1
+        int result = countDigitOne(n);
+        System.out.println("Output : " + result);
+
+    }
+
+    public static int countDigitOne(int n) {
+        int count = 0;
+
+        for (long i = 1; i <= n; i *= 10) {
+            long divider = i * 10;
+            count += (n / divider) * i + Math.min(Math.max(n % divider - i + 1, 0), i);
+        }
+
+        return count;
+    }
+}
+// Algorithm Explanation:
+
+// 1.Loop through Digits:
+// The for loop iterates through each digit place (1s, 10s, 100s, etc.) represented by the variable i.
+
+// 2.Calculate Occurrences:
+// The count of '1's at the current digit place is calculated and added to the total count.
+// The formula (n / divider) * i calculates the number of times '1' appears at the current digit place.
+
+// 3.Handle Remaining Digits:
+// The expression Math.min(Math.max(n % divider - i + 1, 0), i) calculates 
+// the count of '1's for the remaining digits.
+
+// 4.Accumulate Total Count:
+// The total count is updated in each iteration of the loop.
+
+// 5.Return Total Count:
+// The final count represents the total number of digit '1' occurrences in all numbers less than or equal to n.
